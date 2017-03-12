@@ -1,0 +1,117 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Payments.Stripe.Models.PaymentInfoModel
+@using Nop.Web.Framework;
+
+
+<table width="100%" cellspacing="2" cellpadding="1" border="0">
+    <tr>
+        <td>
+            @Html.NopLabelFor(model => model.CardholderName, false):
+        </td>
+        <td>
+            @Html.TextBoxFor(model => model.CardholderName, new { style = "Width: 165px;", autocomplete = "off", Name = "" })
+            @Html.ValidationMessageFor(model => model.CardholderName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.NopLabelFor(model => model.CardNumber, false):
+        </td>
+        <td>
+            @Html.TextBoxFor(model => model.CardNumber, new { style = "Width: 165px;", autocomplete = "off", maxlength = 22, Name = "" })
+            @Html.ValidationMessageFor(model => model.CardNumber)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.NopLabelFor(model => model.ExpireMonth, false):
+        </td>
+        <td>
+            @Html.DropDownListFor(model => model.ExpireMonth, Model.ExpireMonths, new { @Name = "" })
+            /
+            @Html.DropDownListFor(model => model.ExpireYear, Model.ExpireYears, new { @Name = "" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.NopLabelFor(model => model.CardCode, false):
+        </td>
+        <td>
+            @Html.TextBoxFor(model => model.CardCode, new { style = "Width: 60px!important;", autocomplete = "off", maxlength = 4, Name = "" })
+            @Html.ValidationMessageFor(model => model.CardCode)
+        </td>
+    </tr>
+    <tr>
+        <td><input style="display:none;" type="hidden" name="paymenttoken" id="paymenttoken" /></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input style="display:none;" type="hidden" name="nextstep" value = "Next" id="nextstep" /></td>
+        <td></td>
+    </tr>
+</table>
+
+
+<script type="text/javascript">
+    var paymentInfoObject = {};
+
+    function stripeResponseHandlerOnePageCheckout(status, response) {
+
+        if (response.error) {
+            // Show the errors on the form
+            paymentInfoObject.errorMessages.push(response.error.message);
+
+        } else {
+            // response contains id and card, which contains additional card details
+            $("#paymenttoken").val(response.id);
+        }
+
+        paymentInfoObject.submitFormCallback(paymentInfoObject.errorMessages);
+    }
+
+    function externalValidation(errorMessages, submitFormCallback) {
+        paymentInfoObject.errorMessages = errorMessages;
+        paymentInfoObject.submitFormCallback = submitFormCallback;
+
+        // Some other payment method has been selected, so the element won't be in the mark-up.
+        if ($("#paymenttoken").length == 0) {
+            paymentInfoObject.submitFormCallback(paymentInfoObject.errorMessages);
+            return false;
+        }
+
+        if (false == Stripe.card.validateCardNumber($('#CardNumber').val())) {
+            paymentInfoObject.errorMessages.push('@T("Plugins.Payments.Stripe.Errors.InvalidCard")');
+            paymentInfoObject.submitFormCallback(paymentInfoObject.errorMessages);
+            return false;
+        }
+
+        if (false == Stripe.card.validateExpiry($('#ExpireMonth').val(), $('#ExpireYear').val())) {
+            paymentInfoObject.errorMessages.push('@T("Plugins.Payments.Stripe.Errors.ExpiredCard")');
+            paymentInfoObject.submitFormCallback(paymentInfoObject.errorMessages);
+            return false;
+        }
+
+        Stripe.card.createToken({
+            number: $('#CardNumber').val(),
+            cvc: $('#CardCode').val(),
+            exp_month: $('#ExpireMonth').val(),
+            exp_year: $('#ExpireYear').val(),
+            name: $('#CardholderName').val(),
+            address_line1: '@ViewBag.BillingAddress.Address1',
+            address_line2: '@ViewBag.BillingAddress.Address2',
+            address_city: '@ViewBag.BillingAddress.City',
+            address_state: '@ViewBag.BillingAddress.StateProvince.Abbreviation',
+            address_zip: '@ViewBag.BillingAddress.ZipPostalCode',
+            address_country: '@ViewBag.BillingAddress.Country.TwoLetterIsoCode'
+        }, stripeResponseHandlerOnePageCheckout);
+    }
+
+    $(document).ready(function () {
+        $.getScript("https://js.stripe.com/v2", function (data, textStatus, jqxhr) {
+            Stripe.setPublishableKey('@ViewBag.PublicKey');
+        });
+    });
+
+</script>

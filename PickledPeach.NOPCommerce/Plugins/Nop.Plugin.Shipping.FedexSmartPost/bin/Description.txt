@@ -1,0 +1,8 @@
+﻿Group: Shipping rate computation
+FriendlyName: FedEx Smart Post
+SystemName: Shipping.FedExSmartPost
+Version: 1.0
+SupportedVersions: 3.70
+Author: David Eason
+DisplayOrder: 1
+FileName: Nop.Plugin.Shipping.FedexSmartPost.dll

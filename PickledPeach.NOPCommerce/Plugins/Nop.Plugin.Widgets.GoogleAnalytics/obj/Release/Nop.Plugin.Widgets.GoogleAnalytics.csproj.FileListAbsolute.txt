@@ -1,0 +1,10 @@
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Release\Nop.Plugin.Widgets.GoogleAnalytics.csprojResolveAssemblyReference.cache
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Views\WidgetsGoogleAnalytics\Configure.cshtml
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\web.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Description.txt
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\logo.jpg
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Nop.Plugin.Widgets.GoogleAnalytics.dll.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Nop.Plugin.Widgets.GoogleAnalytics.dll
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Widgets.GoogleAnalytics\Nop.Plugin.Widgets.GoogleAnalytics.pdb
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Release\Nop.Plugin.Widgets.GoogleAnalytics.dll
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Widgets.GoogleAnalytics\obj\Release\Nop.Plugin.Widgets.GoogleAnalytics.pdb

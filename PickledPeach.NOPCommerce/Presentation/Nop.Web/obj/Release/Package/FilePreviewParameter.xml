@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="pickledpeach" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\source\\PickledPeach\.NOPCommerce\\Presentation\\Nop\.Web\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\source\\PickledPeach\.NOPCommerce\\Presentation\\Nop\.Web\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="pickledpeach/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\source\\PickledPeach\.NOPCommerce\\Presentation\\Nop\.Web\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="Nop.Data.NopObjectContext-Web.config Connection String" description="Nop.Data.NopObjectContext Connection String used in web.config by the application to access the database." value="Nop.Data.NopObjectContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\source\\PickledPeach\.NOPCommerce\\Presentation\\Nop\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Nop.Data.NopObjectContext']/@connectionString" />
+  </parameter>
+</parameters>

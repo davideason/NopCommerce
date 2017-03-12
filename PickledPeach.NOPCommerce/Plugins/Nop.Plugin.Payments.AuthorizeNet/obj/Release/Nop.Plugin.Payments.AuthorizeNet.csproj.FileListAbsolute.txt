@@ -1,0 +1,13 @@
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Payments.AuthorizeNet\obj\Release\Nop.Plugin.Payments.AuthorizeNet.csprojResolveAssemblyReference.cache
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.AuthorizeNet\Views\PaymentAuthorizeNet\Configure.cshtml
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.AuthorizeNet\Views\PaymentAuthorizeNet\PaymentInfo.cshtml
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.AuthorizeNet\web.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.AuthorizeNet\Description.txt
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.AuthorizeNet\logo.jpg
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.AuthorizeNet\Nop.Plugin.Payments.AuthorizeNet.dll.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.AuthorizeNet\Nop.Plugin.Payments.AuthorizeNet.dll
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.AuthorizeNet\Nop.Plugin.Payments.AuthorizeNet.XmlSerializers.dll
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.AuthorizeNet\Nop.Plugin.Payments.AuthorizeNet.pdb
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Payments.AuthorizeNet\obj\Release\Nop.Plugin.Payments.AuthorizeNet.dll
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Payments.AuthorizeNet\obj\Release\Nop.Plugin.Payments.AuthorizeNet.pdb
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Payments.AuthorizeNet\obj\Release\Nop.Plugin.Payments.AuthorizeNet.XmlSerializers.dll

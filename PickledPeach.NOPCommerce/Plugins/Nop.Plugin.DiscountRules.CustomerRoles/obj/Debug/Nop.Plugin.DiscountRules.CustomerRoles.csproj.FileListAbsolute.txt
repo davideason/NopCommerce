@@ -1,0 +1,10 @@
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Views\DiscountRulesCustomerRoles\Configure.cshtml
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Description.txt
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\web.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\logo.jpg
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Nop.Plugin.DiscountRules.CustomerRoles.dll.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Nop.Plugin.DiscountRules.CustomerRoles.dll
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.CustomerRoles\Nop.Plugin.DiscountRules.CustomerRoles.pdb
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\Nop.Plugin.DiscountRules.CustomerRoles.csprojResolveAssemblyReference.cache
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\Nop.Plugin.DiscountRules.CustomerRoles.dll
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\obj\Debug\Nop.Plugin.DiscountRules.CustomerRoles.pdb

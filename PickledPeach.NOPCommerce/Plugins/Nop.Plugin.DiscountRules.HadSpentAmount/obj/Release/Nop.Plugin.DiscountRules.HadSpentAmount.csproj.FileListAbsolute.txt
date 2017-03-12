@@ -1,0 +1,10 @@
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.HadSpentAmount\obj\Release\Nop.Plugin.DiscountRules.HadSpentAmount.csprojResolveAssemblyReference.cache
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\Views\DiscountRulesHadSpentAmount\Configure.cshtml
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\Description.txt
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\web.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\logo.jpg
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\Nop.Plugin.DiscountRules.HadSpentAmount.dll.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\Nop.Plugin.DiscountRules.HadSpentAmount.dll
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\Nop.Plugin.DiscountRules.HadSpentAmount.pdb
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.HadSpentAmount\obj\Release\Nop.Plugin.DiscountRules.HadSpentAmount.dll
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.HadSpentAmount\obj\Release\Nop.Plugin.DiscountRules.HadSpentAmount.pdb

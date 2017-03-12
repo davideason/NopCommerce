@@ -1,0 +1,11 @@
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.HasAllProducts\obj\Release\Nop.Plugin.DiscountRules.HasAllProducts.csprojResolveAssemblyReference.cache
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HasAllProducts\Views\DiscountRulesHasAllProducts\Configure.cshtml
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HasAllProducts\Description.txt
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HasAllProducts\web.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HasAllProducts\Views\DiscountRulesHasAllProducts\ProductAddPopup.cshtml
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HasAllProducts\logo.jpg
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HasAllProducts\Nop.Plugin.DiscountRules.HasAllProducts.dll.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HasAllProducts\Nop.Plugin.DiscountRules.HasAllProducts.dll
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HasAllProducts\Nop.Plugin.DiscountRules.HasAllProducts.pdb
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.HasAllProducts\obj\Release\Nop.Plugin.DiscountRules.HasAllProducts.dll
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.HasAllProducts\obj\Release\Nop.Plugin.DiscountRules.HasAllProducts.pdb

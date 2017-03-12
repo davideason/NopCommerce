@@ -1,0 +1,9 @@
+C:\source\PickledPeach.NOPCommerce\Tests\Nop.Tests\bin\Release\Nop.Tests.dll
+C:\source\PickledPeach.NOPCommerce\Tests\Nop.Tests\bin\Release\Nop.Tests.pdb
+C:\source\PickledPeach.NOPCommerce\Tests\Nop.Tests\bin\Release\nunit.framework.dll
+C:\source\PickledPeach.NOPCommerce\Tests\Nop.Tests\bin\Release\Rhino.Mocks.dll
+C:\source\PickledPeach.NOPCommerce\Tests\Nop.Tests\bin\Release\nunit.framework.xml
+C:\source\PickledPeach.NOPCommerce\Tests\Nop.Tests\bin\Release\Rhino.Mocks.xml
+C:\source\PickledPeach.NOPCommerce\Tests\Nop.Tests\obj\Release\Nop.Tests.csprojResolveAssemblyReference.cache
+C:\source\PickledPeach.NOPCommerce\Tests\Nop.Tests\obj\Release\Nop.Tests.dll
+C:\source\PickledPeach.NOPCommerce\Tests\Nop.Tests\obj\Release\Nop.Tests.pdb

@@ -1,0 +1,6 @@
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Administration\obj\Release\Nop.Admin.csprojResolveAssemblyReference.cache
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\bin\Nop.Admin.dll.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\bin\Nop.Admin.dll
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\bin\Nop.Admin.pdb
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Administration\obj\Release\Nop.Admin.dll
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Administration\obj\Release\Nop.Admin.pdb

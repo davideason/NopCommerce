@@ -1,0 +1,11 @@
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\Nop.Plugin.Payments.CheckMoneyOrder.csprojResolveAssemblyReference.cache
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Views\PaymentCheckMoneyOrder\Configure.cshtml
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Views\PaymentCheckMoneyOrder\PaymentInfo.cshtml
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\web.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Description.txt
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\logo.jpg
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Nop.Plugin.Payments.CheckMoneyOrder.dll.config
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Nop.Plugin.Payments.CheckMoneyOrder.dll
+C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Payments.CheckMoneyOrder\Nop.Plugin.Payments.CheckMoneyOrder.pdb
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\Nop.Plugin.Payments.CheckMoneyOrder.dll
+C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Payments.CheckMoneyOrder\obj\Release\Nop.Plugin.Payments.CheckMoneyOrder.pdb

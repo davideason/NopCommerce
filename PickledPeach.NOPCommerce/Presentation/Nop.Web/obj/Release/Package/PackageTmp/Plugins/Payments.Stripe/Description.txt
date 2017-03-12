@@ -1,0 +1,8 @@
+Group: Payment methods
+FriendlyName: Stripe
+SystemName: Payments.Stripe
+Version: 1.3.0.2
+SupportedVersions: 3.70
+Author: www.nop-payments.com
+DisplayOrder: 1
+FileName: Nop.Plugin.Payments.Stripe.dll
