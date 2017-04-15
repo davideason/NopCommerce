@@ -8,3 +8,13 @@ C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.Austral
 C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.AustraliaPost\Nop.Plugin.Shipping.AustraliaPost.pdb
 C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Shipping.AustraliaPost\obj\Release\Nop.Plugin.Shipping.AustraliaPost.dll
 C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Shipping.AustraliaPost\obj\Release\Nop.Plugin.Shipping.AustraliaPost.pdb
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.AustraliaPost\Views\ShippingAustraliaPost\Configure.cshtml
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.AustraliaPost\Description.txt
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.AustraliaPost\web.config
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.AustraliaPost\logo.jpg
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.AustraliaPost\Nop.Plugin.Shipping.AustraliaPost.dll.config
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.AustraliaPost\Nop.Plugin.Shipping.AustraliaPost.dll
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.AustraliaPost\Nop.Plugin.Shipping.AustraliaPost.pdb
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Shipping.AustraliaPost\obj\Release\Nop.Plugin.Shipping.AustraliaPost.csprojResolveAssemblyReference.cache
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Shipping.AustraliaPost\obj\Release\Nop.Plugin.Shipping.AustraliaPost.dll
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Shipping.AustraliaPost\obj\Release\Nop.Plugin.Shipping.AustraliaPost.pdb

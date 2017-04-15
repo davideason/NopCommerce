@@ -6,3 +6,11 @@ C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\ExchangeRate.Ecb
 C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\ExchangeRate.EcbExchange\Nop.Plugin.ExchangeRate.EcbExchange.pdb
 C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.ExchangeRate.EcbExchange\obj\Release\Nop.Plugin.ExchangeRate.EcbExchange.dll
 C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.ExchangeRate.EcbExchange\obj\Release\Nop.Plugin.ExchangeRate.EcbExchange.pdb
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\ExchangeRate.EcbExchange\Description.txt
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\ExchangeRate.EcbExchange\logo.jpg
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\ExchangeRate.EcbExchange\Nop.Plugin.ExchangeRate.EcbExchange.dll.config
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\ExchangeRate.EcbExchange\Nop.Plugin.ExchangeRate.EcbExchange.dll
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\ExchangeRate.EcbExchange\Nop.Plugin.ExchangeRate.EcbExchange.pdb
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.ExchangeRate.EcbExchange\obj\Release\Nop.Plugin.ExchangeRate.EcbExchange.csprojResolveAssemblyReference.cache
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.ExchangeRate.EcbExchange\obj\Release\Nop.Plugin.ExchangeRate.EcbExchange.dll
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.ExchangeRate.EcbExchange\obj\Release\Nop.Plugin.ExchangeRate.EcbExchange.pdb

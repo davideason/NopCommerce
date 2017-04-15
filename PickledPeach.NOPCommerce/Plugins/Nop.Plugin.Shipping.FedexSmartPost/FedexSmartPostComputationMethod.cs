@@ -78,45 +78,71 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             // Build the RateRequest
             var request = new RateRequest();
 
+            #region WS Requests Credentials
+
             request.WebAuthenticationDetail = new RateServiceWebReference.WebAuthenticationDetail();
             request.WebAuthenticationDetail.UserCredential = new RateServiceWebReference.WebAuthenticationCredential();
             request.WebAuthenticationDetail.UserCredential.Key = _fedexSettings.Key;
             request.WebAuthenticationDetail.UserCredential.Password = _fedexSettings.Password;
 
+            #endregion
+
+            #region WS Requests Account and Meter Number
+            
             request.ClientDetail = new RateServiceWebReference.ClientDetail();
             request.ClientDetail.AccountNumber = _fedexSettings.AccountNumber;
             request.ClientDetail.MeterNumber = _fedexSettings.MeterNumber;
 
+            #endregion
+
+            #region WS Requests Transactoin Details
+            
             request.TransactionDetail = new RateServiceWebReference.TransactionDetail();
             request.TransactionDetail.CustomerTransactionId = "***Rate Available Services v16 Request - nopCommerce***"; // This is a reference field for the customer.  Any value can be used and will be provided in the response.
+            
+            #endregion
 
+            #region WS Requests Version and Commit Config
+            
             request.Version = new RateServiceWebReference.VersionId(); // WSDL version information, value is automatically set from wsdl            
-
             request.ReturnTransitAndCommit = true;
             request.ReturnTransitAndCommitSpecified = true;
 
-            // DAE  - Add another Carriercode for Smartpost
-            request.CarrierCodes = new RateServiceWebReference.CarrierCodeType[3];
-            // Insert the Carriers you would like to see the rates for
-            request.CarrierCodes[0] = RateServiceWebReference.CarrierCodeType.FDXE;//Express
-            request.CarrierCodes[1] = RateServiceWebReference.CarrierCodeType.FDXG;//Ground
-            request.CarrierCodes[2] = RateServiceWebReference.CarrierCodeType.FXSP;//SmartPost (c)
+            #endregion
+
+            #region WS Requests Carrier Configurations
+
+            // DAE  - Add only the Carriercode for Smartpost
+            request.CarrierCodes = new RateServiceWebReference.CarrierCodeType[1];
+            request.CarrierCodes[0] = RateServiceWebReference.CarrierCodeType.FXSP;//SmartPost (c)
+
+            #endregion
 
             decimal orderSubTotalDiscountAmount;
             Discount orderSubTotalAppliedDiscount;
             decimal subTotalWithoutDiscountBase;
             decimal subTotalWithDiscountBase;
+
             //TODO we should use getShippingOptionRequest.Items.GetQuantity() method to get subtotal
+            //Loop through all items in the shopping cart and calculate the total
             _orderTotalCalculationService.GetShoppingCartSubTotal(getShippingOptionRequest.Items.Select(x => x.ShoppingCartItem).ToList(),
-                false, out orderSubTotalDiscountAmount, out orderSubTotalAppliedDiscount,
-                out subTotalWithoutDiscountBase, out subTotalWithDiscountBase);
+                    false,
+                    out orderSubTotalDiscountAmount, 
+                    out orderSubTotalAppliedDiscount,
+                    out subTotalWithoutDiscountBase, 
+                    out subTotalWithDiscountBase);
+
             decimal subTotalBase = subTotalWithDiscountBase;
 
             request.RequestedShipment = new RequestedShipment();
 
+            //Set Package Origin
             SetOrigin(request, getShippingOptionRequest);
+
+            //Set Package Destination
             SetDestination(request, getShippingOptionRequest); // TODO : Does Smart Post require the full Address?
 
+            //Set Shipment Currency
             requestedShipmentCurrency = GetRequestedShipmentCurrency(
                 request.RequestedShipment.Shipper.Address.CountryCode,    // origin
                 request.RequestedShipment.Recipient.Address.CountryCode); // destination
@@ -131,54 +157,70 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             Debug.WriteLine("SubTotal (Primary Currency) : {0} ({1})", subTotalBase, primaryStoreCurrency.CurrencyCode);
             Debug.WriteLine("SubTotal (Shipment Currency): {0} ({1})", subTotalShipmentCurrency, requestedShipmentCurrency.CurrencyCode);
 
+            //Set Shipment details and services (Smart Post specific) 
             SetShipmentDetails(request, subTotalShipmentCurrency, requestedShipmentCurrency.CurrencyCode);
+
+            //Set Payment type Config
             SetPayment(request);
 
+            //Calculate Package Configurations (Major)
             switch (_fedexSettings.PackingType)
             {
-                case PackingType.PackByOneItemPerPackage:
-                    SetIndividualPackageLineItemsOneItemPerPackage(request, getShippingOptionRequest, requestedShipmentCurrency.CurrencyCode);
-                    break;
-                case PackingType.PackByVolume:
-                    SetIndividualPackageLineItemsCubicRootDimensions(request, getShippingOptionRequest, subTotalShipmentCurrency, requestedShipmentCurrency.CurrencyCode);
-                    break;
-                case PackingType.PackByDimensions:
+                //case PackingType.PackByOneItemPerPackage:
+                //    SetIndividualPackageLineItemsOneItemPerPackage(request, getShippingOptionRequest, requestedShipmentCurrency.CurrencyCode);
+                //    break;
+                //case PackingType.PackByVolume:
+                //    SetIndividualPackageLineItemsCubicRootDimensions(request, getShippingOptionRequest, subTotalShipmentCurrency, requestedShipmentCurrency.CurrencyCode);
+                //    break;
+                case PackingType.PackByDimensions://Our Smart Post method
                 default:
                     SetIndividualPackageLineItems(request, getShippingOptionRequest, subTotalShipmentCurrency, requestedShipmentCurrency.CurrencyCode);
                     break;
             }
+
             return request;
         }
 
         private void SetShipmentDetails(RateRequest request, decimal orderSubTotal, string currencyCode)
         {
-            //set drop off type
+            #region Dropoff Type
             switch (_fedexSettings.DropoffType)
             {
-                case DropoffType.BusinessServiceCenter:
-                    request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.BUSINESS_SERVICE_CENTER;
-                    break;
-                case DropoffType.DropBox:
-                    request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.DROP_BOX;
-                    break;
+                #region removed integrations
+                //case DropoffType.BusinessServiceCenter:
+                //    request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.BUSINESS_SERVICE_CENTER;
+                //    break;
+                //case DropoffType.DropBox:
+                //    request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.DROP_BOX;
+                //    break;
+                
+                //case DropoffType.RequestCourier:
+                //    request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.REQUEST_COURIER;
+                //    break;
+                //case DropoffType.Station:
+                //    request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.STATION;
+                //    break;
+                #endregion 
+
                 case DropoffType.RegularPickup://Default for SmartPost
                     request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.REGULAR_PICKUP;
                     break;
-                case DropoffType.RequestCourier:
-                    request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.REQUEST_COURIER;
-                    break;
-                case DropoffType.Station:
-                    request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.STATION;
-                    break;
                 default:
-                    request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.BUSINESS_SERVICE_CENTER;
+                    //request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.BUSINESS_SERVICE_CENTER;
+                    request.RequestedShipment.DropoffType = RateServiceWebReference.DropoffType.REGULAR_PICKUP;
                     break;
             }
+            #endregion
+
+            #region Insurance configuration
             request.RequestedShipment.TotalInsuredValue = new Money();
             request.RequestedShipment.TotalInsuredValue.Amount = orderSubTotal;
             request.RequestedShipment.TotalInsuredValue.Currency = currencyCode;
+            #endregion
 
+            #region Shippment Time Stamps
 
+            
             //Saturday pickup is available for certain FedEx Express U.S. service types:
             //http://www.fedex.com/us/developer/product/WebServices/MyWebHelp/Services/Options/c_SaturdayShipAndDeliveryServiceDetails.html
             //If the customer orders on a Saturday, the rate calculation will use Saturday as the shipping date, and the rates will include a Saturday pickup surcharge
@@ -188,12 +230,22 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
                 shipTimestamp = shipTimestamp.AddDays(2);
             request.RequestedShipment.ShipTimestamp = shipTimestamp; // Shipping date and time
             request.RequestedShipment.ShipTimestampSpecified = true;
+            
+            #endregion
+
+            #region Rate Request Types
+
+            
             request.RequestedShipment.RateRequestTypes = new RateRequestType[2];
             request.RequestedShipment.RateRequestTypes[0] = RateRequestType.PREFERRED;
             request.RequestedShipment.RateRequestTypes[1] = RateRequestType.LIST;
             //request.RequestedShipment.PackageDetail = RequestedPackageDetailType.INDIVIDUAL_PACKAGES;
             //request.RequestedShipment.PackageDetailSpecified = true;
+            
+            #endregion
 
+            #region Smart Post Requested Shippment Configuration (ServiceType -SMART_POST, PackagingType -YOUR_PACKAGING, Indicia -weight based , Acillary -leave package , HubID -CentralProcessingLocaationHub)
+            
             //DAE - Adding Support for SmartPost
             if (_fedexSettings.CarrierServicesOffered != null
                 && _fedexSettings.CarrierServicesOffered.Contains("SMART_POST"))
@@ -203,28 +255,55 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
                 request.RequestedShipment.PackagingType = RateServiceWebReference.PackagingType.YOUR_PACKAGING; // DAE TODO : Make Configurable (DAESETTINGS)
                 request.RequestedShipment.PackagingTypeSpecified = true;
                 //In addition to Requested Service Types and Packages, we must also set SmartPost specific details
-                if(request.RequestedShipment.SmartPostDetail == null)
+                if(request.RequestedShipment.SmartPostDetail == null) // Safely reset configuration on NULL
                     request.RequestedShipment.SmartPostDetail = new SmartPostShipmentDetail();
-                request.RequestedShipment.SmartPostDetail.Indicia = SmartPostIndiciaType.PARCEL_SELECT;// DAE TODO Priority 1 : Presorted standard for < 1LB or 16OZ. Parcel Select for > 15.9OZ or > .99LBs.
+
+                //https://www.fedex.com/us/developer/WebHelp/fsms/1501/html/FSMSHelp/FSMSDVG/6_FedEx_SmartPost.htm
+                request.RequestedShipment.SmartPostDetail.Indicia = SmartPostIndiciaType.PARCEL_SELECT;// DAE TODO Priority 1 : Presorted standard for < 1LB or 16OZ. Parcel Select for > 15.99OZ or > .99LBs. THis should be checked here and set at the class level DAE START HERE
                 request.RequestedShipment.SmartPostDetail.IndiciaSpecified = true;
                 request.RequestedShipment.SmartPostDetail.AncillaryEndorsement = SmartPostAncillaryEndorsementType.CARRIER_LEAVE_IF_NO_RESPONSE;//We can default this
                 request.RequestedShipment.SmartPostDetail.AncillaryEndorsementSpecified = true;
-                request.RequestedShipment.SmartPostDetail.HubId = "5531"; // DAE TODO PRIORITY 2 - Make configurable by UI and Settings modification.
+                request.RequestedShipment.SmartPostDetail.HubId = _fedexSettings.HubID ?? "5531"; // DAE Made configurable by UI and Settings modification. If null, defaults to 5531
             }
+            
+            #endregion
+        }
+
+        /// <summary>
+        /// DAE CREATED HELPER FOR INDICIA CALCULATIONS
+        /// </summary>
+        /// <param name="weight"></param>
+        /// <returns>Presorted_Standard if between .1lb and .99lb inclusive, otherwise Parcel_Select</returns>
+        private SmartPostIndiciaType DetermineIndicia (decimal weight)
+        {
+            #region Determine based on weight
+            //Weight between .1 and .99lbs, so use Presorted Standard
+            if(0 < weight && weight < 1)
+            {
+                return SmartPostIndiciaType.PRESORTED_STANDARD;
+            }
+            else //Weight greater than .99, set as Parcel Select for larger Indicia. This includes 0 or negative weights
+            {
+                return SmartPostIndiciaType.PARCEL_SELECT;
+            }
+            #endregion
         }
 
         private void SetPayment(RateRequest request)
         {
+            #region Payment Type, Payor, Account Number (SETTINGS)
             request.RequestedShipment.ShippingChargesPayment = new Payment(); // Payment Information
             request.RequestedShipment.ShippingChargesPayment.PaymentType = PaymentType.SENDER; // Payment options are RECIPIENT, SENDER, THIRD_PARTY
             request.RequestedShipment.ShippingChargesPayment.PaymentTypeSpecified = true;
             request.RequestedShipment.ShippingChargesPayment.Payor = new Payor();
             request.RequestedShipment.ShippingChargesPayment.Payor.ResponsibleParty = new Party();
             request.RequestedShipment.ShippingChargesPayment.Payor.ResponsibleParty.AccountNumber = _fedexSettings.AccountNumber;
+            #endregion
         }
 
         private void SetDestination(RateRequest request, GetShippingOptionRequest getShippingOptionRequest)
         {
+            #region Package Recipient Configs
             request.RequestedShipment.Recipient = new Party();
             request.RequestedShipment.Recipient.Address = new RateServiceWebReference.Address();
             if (_fedexSettings.UseResidentialRates)
@@ -245,10 +324,12 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             }
             request.RequestedShipment.Recipient.Address.PostalCode = getShippingOptionRequest.ShippingAddress.ZipPostalCode;
             request.RequestedShipment.Recipient.Address.CountryCode = getShippingOptionRequest.ShippingAddress.Country.TwoLetterIsoCode;
+            #endregion
         }
 
         private void SetOrigin(RateRequest request, GetShippingOptionRequest getShippingOptionRequest)
         {
+            #region Package Origin
             request.RequestedShipment.Shipper = new Party();
             request.RequestedShipment.Shipper.Address = new RateServiceWebReference.Address();
 
@@ -264,6 +345,7 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             }
             request.RequestedShipment.Shipper.Address.PostalCode = getShippingOptionRequest.ZipPostalCodeFrom;
             request.RequestedShipment.Shipper.Address.CountryCode = getShippingOptionRequest.CountryFrom.TwoLetterIsoCode;
+            #endregion
         }
 
         private bool IncludeStateProvinceCode(string countryCode)
@@ -272,6 +354,15 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
                     countryCode.Equals("CA", StringComparison.InvariantCultureIgnoreCase));
         }
 
+        #region Cart -> Package specific calulations
+
+        /// <summary>
+        /// Pack By Dimensions
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="getShippingOptionRequest"></param>
+        /// <param name="orderSubTotal"></param>
+        /// <param name="currencyCode"></param>
         private void SetIndividualPackageLineItems(RateRequest request, GetShippingOptionRequest getShippingOptionRequest, decimal orderSubTotal, string currencyCode)
         {
             // Rate request setup - Total Dimensions of Shopping Cart Items determines number of packages
@@ -286,9 +377,21 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             int height = ConvertFromPrimaryMeasureDimension(heightTmp, usedMeasureDimension);
             int width = ConvertFromPrimaryMeasureDimension(widthTmp, usedMeasureDimension);
             int weight = 0;
-            //DAE if(!isSmartPost)
+            decimal dcWeight = 0;
+            //DAE pull a decimal. If it's between 0  and 1, use presorted select
+
             weight = ConvertFromPrimaryMeasureWeight(_shippingService.GetTotalWeight(getShippingOptionRequest), usedMeasureWeight);
             //else
+
+            /// SERVICE TYPES https://www.fedex.com/us/developer/WebHelp/fsms/1501/html/FSMSHelp/FSMSDVG/6_FedEx_SmartPost.htm
+            /// DAE - The design for smartpost:
+            /// 1) Pull The total weight
+            /// 2) Method to return RateServiceWebReference.WeightUnits ENUM
+            ///     -- Input = Decimal of Total Weight
+            ///     -- Logic > If weight is between 0 & 1
+            /// 
+            ///
+
 
 
             if (length < 1)
@@ -300,6 +403,7 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             if (0 > weight && weight < 1 && request.RequestedShipment.SmartPostDetail == null) // DAE TODO (Complete 0-1 check only for presorted_select - Addded Smartpost Compatibility. If weight is between 0 and 1 and not Smartpost, default. Otherwise if it is between and Smartpost is not null, use given value
                 weight = 1;
             
+            //If the Total dimensions aren't too large...
             if ((!IsPackageTooHeavy(weight)) && (!IsPackageTooLarge(length, height, width)))
             {
                 request.RequestedShipment.PackageCount = "1";
@@ -309,7 +413,7 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
                 request.RequestedShipment.RequestedPackageLineItems[0].SequenceNumber = "1"; // package sequence number
                 request.RequestedShipment.RequestedPackageLineItems[0].GroupPackageCount = "1";
                 request.RequestedShipment.RequestedPackageLineItems[0].Weight = new RateServiceWebReference.Weight(); // package weight
-                request.RequestedShipment.RequestedPackageLineItems[0].Weight.Units = RateServiceWebReference.WeightUnits.LB;
+                request.RequestedShipment.RequestedPackageLineItems[0].Weight.Units = RateServiceWebReference.WeightUnits.LB; //Use determine weightunit
                 request.RequestedShipment.RequestedPackageLineItems[0].Weight.UnitsSpecified = true;
                 request.RequestedShipment.RequestedPackageLineItems[0].Weight.Value = weight; //DAE TODO - If Smartpost and PRESORTED_STANDARD , must be under 1LB, otherwise needs to be split and grouped by 1LB per package. # packages is weight/1LB, then round up. The weight will then be .99LB
                 request.RequestedShipment.RequestedPackageLineItems[0].Weight.ValueSpecified = true;
@@ -325,7 +429,7 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
                 request.RequestedShipment.RequestedPackageLineItems[0].InsuredValue.Currency = currencyCode;
 
             }
-            else
+            else //Dimensions are too large....
             {
                 int totalPackagesDims = 1;
                 int totalPackagesWeights = 1;
@@ -383,6 +487,13 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             }
         }
 
+        //We aren't doing one item per package TODO DEPRECATE
+        /// <summary>
+        /// Pack by One Item Per Package
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="getShippingOptionRequest"></param>
+        /// <param name="currencyCode"></param>
         private void SetIndividualPackageLineItemsOneItemPerPackage(RateRequest request, GetShippingOptionRequest getShippingOptionRequest, string currencyCode)
         {
             // Rate request setup - each Shopping Cart Item is a separate package
@@ -449,6 +560,13 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
 
         }
 
+        /// <summary>
+        /// Pack by Volume
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="getShippingOptionRequest"></param>
+        /// <param name="orderSubTotal"></param>
+        /// <param name="currencyCode"></param>
         private void SetIndividualPackageLineItemsCubicRootDimensions(RateRequest request, GetShippingOptionRequest getShippingOptionRequest, decimal orderSubTotal, string currencyCode)
         {
             // Rate request setup - Total Volume of Shopping Cart Items determines number of packages
@@ -605,6 +723,8 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
 
         }
 
+        #endregion
+
         private IEnumerable<ShippingOption> ParseResponse(RateReply reply, Currency requestedShipmentCurrency)
         {
             var result = new List<ShippingOption>();
@@ -695,6 +815,8 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             return amount;
         }
 
+        #region Simple Helpers
+
         private bool IsPackageTooLarge(int length, int height, int width)
         {
             int total = TotalPackageSize(length, height, width);
@@ -743,6 +865,8 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             return Convert.ToInt32(Math.Ceiling(_measureService.ConvertFromPrimaryMeasureWeight(quantity, usedMeasureWeighht)));
         }
 
+        #endregion
+
         private Currency GetRequestedShipmentCurrency(string originCountryCode, string destinCountryCode)
         {
             var primaryStoreCurrency = _currencyService.GetCurrencyById(_currencySettings.PrimaryStoreCurrencyId);
@@ -788,6 +912,8 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
         /// <returns>Represents a response of getting shipping rate options</returns>
         public GetShippingOptionResponse GetShippingOptions(GetShippingOptionRequest getShippingOptionRequest)
         {
+
+            #region Null Checks
             if (getShippingOptionRequest == null)
                 throw new ArgumentNullException("getShippingOptionRequest");
 
@@ -810,6 +936,8 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
                 response.AddError("Shipping country is not set");
                 return response;
             }
+
+            #endregion
 
             Currency requestedShipmentCurrency;
             var request = CreateRateRequest(getShippingOptionRequest, out requestedShipmentCurrency);
@@ -877,6 +1005,8 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             return null;
         }
 
+        #region Deploy and Retract
+
         /// <summary>
         /// Gets a route for provider configuration
         /// </summary>
@@ -899,8 +1029,8 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             var settings = new FedexSmartPostSettings
             {
                 Url = "https://gatewaybeta.fedex.com:443/web-services/rate",
-                DropoffType = DropoffType.BusinessServiceCenter,
-                PackingPackageVolume = 5184
+                DropoffType = DropoffType.RegularPickup,
+                PackingPackageVolume = 5184 //DAE This should also be configurable
             };
             _settingService.SaveSetting(settings);
 
@@ -998,6 +1128,8 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
 
             base.Uninstall();
         }
+
+        #endregion
 
         #endregion
 

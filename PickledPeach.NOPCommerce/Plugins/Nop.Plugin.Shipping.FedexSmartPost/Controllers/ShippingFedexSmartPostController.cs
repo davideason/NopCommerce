@@ -106,7 +106,7 @@ namespace Nop.Plugin.Shipping.FedexSmartPost.Controllers
             }
             // Add default options if no services were selected
             if (carrierServicesDomesticSelectedCount == 0)
-                _fedexSettings.CarrierServicesOffered = "FEDEX_2_DAY:PRIORITY_OVERNIGHT:FEDEX_GROUND:GROUND_HOME_DELIVERY:INTERNATIONAL_ECONOMY";
+                _fedexSettings.CarrierServicesOffered = "FEDEX_2_DAY:PRIORITY_OVERNIGHT:FEDEX_GROUND:GROUND_HOME_DELIVERY:INTERNATIONAL_ECONOMY:SMART_POST";
             else
                 _fedexSettings.CarrierServicesOffered = carrierServicesOfferedDomestic.ToString();
 

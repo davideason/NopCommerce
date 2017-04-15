@@ -8,3 +8,13 @@ C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.Ha
 C:\source\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\Nop.Plugin.DiscountRules.HadSpentAmount.pdb
 C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.HadSpentAmount\obj\Release\Nop.Plugin.DiscountRules.HadSpentAmount.dll
 C:\source\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.HadSpentAmount\obj\Release\Nop.Plugin.DiscountRules.HadSpentAmount.pdb
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\Views\DiscountRulesHadSpentAmount\Configure.cshtml
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\Description.txt
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\web.config
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\logo.jpg
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\Nop.Plugin.DiscountRules.HadSpentAmount.dll.config
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\Nop.Plugin.DiscountRules.HadSpentAmount.dll
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\DiscountRules.HadSpentAmount\Nop.Plugin.DiscountRules.HadSpentAmount.pdb
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.HadSpentAmount\obj\Release\Nop.Plugin.DiscountRules.HadSpentAmount.csprojResolveAssemblyReference.cache
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.HadSpentAmount\obj\Release\Nop.Plugin.DiscountRules.HadSpentAmount.dll
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.DiscountRules.HadSpentAmount\obj\Release\Nop.Plugin.DiscountRules.HadSpentAmount.pdb

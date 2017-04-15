@@ -8,11 +8,11 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
         /// <summary>
         /// Business service center
         /// </summary>
-        BusinessServiceCenter = 0,
+            //BusinessServiceCenter = 0,
         /// <summary>
         /// Drop box
         /// </summary>
-        DropBox = 10,
+            //DropBox = 10,
         /// <summary>
         /// Regular pickup
         /// </summary>
@@ -20,10 +20,10 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
         /// <summary>
         /// Request courier
         /// </summary>
-        RequestCourier = 30,
+            //RequestCourier = 30,
         /// <summary>
         /// Station
         /// </summary>
-        Station = 40,
+            //Station = 40,
     }
 }
