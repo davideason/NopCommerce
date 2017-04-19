@@ -1,0 +1,9 @@
+{"The view '~/Plugins/Shipping.FedexSmartPost/Views/ShippingFedex/Configure.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:\r\n~/Plugins/Shipping.FedexSmartPost/Views/ShippingFedex/Configure.cshtml"}
+
+actual Browse to:~/ShippingFedexSmartPost/Configure
+
+code: ~/Plugins/Shipping.FedexSmartPost/Views/ShippingFedex/Configure.cshtml
+
+
+attempt 2
+{"The view '~/ShippingFedexSmartPost/Configure.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:\r\n~/ShippingFedexSmartPost/Configure.cshtml"}

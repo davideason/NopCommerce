@@ -51,6 +51,5 @@ C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Libraries\Nop.
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Libraries\Nop.Core\bin\Release\System.Web.WebPages.xml
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Libraries\Nop.Core\bin\Release\System.Web.WebPages.Deployment.xml
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Libraries\Nop.Core\bin\Release\System.Web.WebPages.Razor.xml
-C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Libraries\Nop.Core\obj\Release\Nop.Core.csprojResolveAssemblyReference.cache
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Libraries\Nop.Core\obj\Release\Nop.Core.dll
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Libraries\Nop.Core\obj\Release\Nop.Core.pdb

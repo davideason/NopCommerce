@@ -126,7 +126,6 @@ C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\N
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web.Framework\bin\Release\FluentValidation.pdb
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web.Framework\bin\Release\FluentValidation.xml
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web.Framework\bin\Release\Newtonsoft.Json.xml
-C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web.Framework\bin\Release\Recaptcha.pdb
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web.Framework\bin\Release\System.Web.Helpers.xml
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web.Framework\bin\Release\System.Web.Mvc.xml
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web.Framework\bin\Release\System.Web.Optimization.xml

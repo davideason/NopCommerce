@@ -34,7 +34,7 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
     {
         #region Constants
 
-        private const int MAXPACKAGEWEIGHT = 150;
+        private const int MAXPACKAGEWEIGHT = 70; //Smart Post max is 70lbs
         private const string MEASUREWEIGHTSYSTEMKEYWORD = "lb";
         private const string MEASUREDIMENSIONSYSTEMKEYWORD = "inches";
 
@@ -259,8 +259,6 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
                     request.RequestedShipment.SmartPostDetail = new SmartPostShipmentDetail();
 
                 //https://www.fedex.com/us/developer/WebHelp/fsms/1501/html/FSMSHelp/FSMSDVG/6_FedEx_SmartPost.htm
-                request.RequestedShipment.SmartPostDetail.Indicia = SmartPostIndiciaType.PARCEL_SELECT;// DAE TODO Priority 1 : Presorted standard for < 1LB or 16OZ. Parcel Select for > 15.99OZ or > .99LBs. THis should be checked here and set at the class level DAE START HERE
-                request.RequestedShipment.SmartPostDetail.IndiciaSpecified = true;
                 request.RequestedShipment.SmartPostDetail.AncillaryEndorsement = SmartPostAncillaryEndorsementType.CARRIER_LEAVE_IF_NO_RESPONSE;//We can default this
                 request.RequestedShipment.SmartPostDetail.AncillaryEndorsementSpecified = true;
                 request.RequestedShipment.SmartPostDetail.HubId = _fedexSettings.HubID ?? "5531"; // DAE Made configurable by UI and Settings modification. If null, defaults to 5531
@@ -367,6 +365,7 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
         {
             // Rate request setup - Total Dimensions of Shopping Cart Items determines number of packages
 
+            //LBs, Kg, g, etc..
             var usedMeasureWeight = GetUsedMeasureWeight();
             var usedMeasureDimension = GetUsedMeasureDimension();
 
@@ -381,6 +380,8 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             //DAE pull a decimal. If it's between 0  and 1, use presorted select
 
             weight = ConvertFromPrimaryMeasureWeight(_shippingService.GetTotalWeight(getShippingOptionRequest), usedMeasureWeight);
+
+            dcWeight = _shippingService.GetTotalWeight(getShippingOptionRequest);
             //else
 
             /// SERVICE TYPES https://www.fedex.com/us/developer/WebHelp/fsms/1501/html/FSMSHelp/FSMSDVG/6_FedEx_SmartPost.htm
@@ -388,20 +389,22 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
             /// 1) Pull The total weight
             /// 2) Method to return RateServiceWebReference.WeightUnits ENUM
             ///     -- Input = Decimal of Total Weight
-            ///     -- Logic > If weight is between 0 & 1
+            ///     -- Logic > If weight is between 0 & 1 then set indicia
+            ///     
             /// 
             ///
 
+            //Based on the true weight, set the service type
+            request.RequestedShipment.SmartPostDetail.Indicia = DetermineIndicia(dcWeight); // SmartPostIndiciaType.PARCEL_SELECT;// DAE TODO Priority 1 : Presorted standard for < 1LB or 16OZ. Parcel Select for > 15.99OZ or > .99LBs. THis should be checked here and set at the class level DAE START HERE
+            request.RequestedShipment.SmartPostDetail.IndiciaSpecified = true;
 
-
+            //Round off the size dimensions, for smart post, they don't really affect the price
             if (length < 1)
                 length = 1;
             if (height < 1)
                 height = 1;
             if (width < 1)
                 width = 1;
-            if (0 > weight && weight < 1 && request.RequestedShipment.SmartPostDetail == null) // DAE TODO (Complete 0-1 check only for presorted_select - Addded Smartpost Compatibility. If weight is between 0 and 1 and not Smartpost, default. Otherwise if it is between and Smartpost is not null, use given value
-                weight = 1;
             
             //If the Total dimensions aren't too large...
             if ((!IsPackageTooHeavy(weight)) && (!IsPackageTooLarge(length, height, width)))
@@ -415,7 +418,7 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
                 request.RequestedShipment.RequestedPackageLineItems[0].Weight = new RateServiceWebReference.Weight(); // package weight
                 request.RequestedShipment.RequestedPackageLineItems[0].Weight.Units = RateServiceWebReference.WeightUnits.LB; //Use determine weightunit
                 request.RequestedShipment.RequestedPackageLineItems[0].Weight.UnitsSpecified = true;
-                request.RequestedShipment.RequestedPackageLineItems[0].Weight.Value = weight; //DAE TODO - If Smartpost and PRESORTED_STANDARD , must be under 1LB, otherwise needs to be split and grouped by 1LB per package. # packages is weight/1LB, then round up. The weight will then be .99LB
+                request.RequestedShipment.RequestedPackageLineItems[0].Weight.Value = dcWeight; //DAE - If Smartpost and PRESORTED_STANDARD , must be under 1LB, otherwise needs to be split and grouped by 1LB per package. # packages is weight/1LB, then round up. The weight will then be .99LB
                 request.RequestedShipment.RequestedPackageLineItems[0].Weight.ValueSpecified = true;
 
                 request.RequestedShipment.RequestedPackageLineItems[0].Dimensions = new RateServiceWebReference.Dimensions(); // package dimensions
@@ -864,6 +867,12 @@ namespace Nop.Plugin.Shipping.FedexSmartPost
         {
             return Convert.ToInt32(Math.Ceiling(_measureService.ConvertFromPrimaryMeasureWeight(quantity, usedMeasureWeighht)));
         }
+
+        private decimal ConvertPrimaryDecimalMeasureWeight(decimal quantity, MeasureWeight usedMeasureWeight)
+        {
+            return _measureService.ConvertFromPrimaryMeasureWeight(quantity, usedMeasureWeight);
+        }
+
 
         #endregion
 

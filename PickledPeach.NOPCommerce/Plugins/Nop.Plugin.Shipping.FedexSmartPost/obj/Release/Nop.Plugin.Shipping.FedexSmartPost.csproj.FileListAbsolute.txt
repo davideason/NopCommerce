@@ -307,3 +307,11 @@ C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Pl
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Shipping.FedexSmartPost\obj\Release\Nop.Plugin.Shipping.FedexSmartPost.dll
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Shipping.FedexSmartPost\obj\Release\Nop.Plugin.Shipping.FedexSmartPost.pdb
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Plugins\Nop.Plugin.Shipping.FedexSmartPost\obj\Release\Nop.Plugin.Shipping.FedexSmartPost.XmlSerializers.dll
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.FedexSmartPost\Views\ShippingFedexSmartPost\Configure.cshtml
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.FedexSmartPost\web.config
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.FedexSmartPost\Description.txt
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.FedexSmartPost\logo.jpg
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.FedexSmartPost\Nop.Plugin.Shipping.FedexSmartPost.dll.config
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.FedexSmartPost\Nop.Plugin.Shipping.FedexSmartPost.dll
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.FedexSmartPost\Nop.Plugin.Shipping.FedexSmartPost.XmlSerializers.dll
+C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Presentation\Nop.Web\Plugins\Shipping.FedexSmartPost\Nop.Plugin.Shipping.FedexSmartPost.pdb

@@ -1,4 +1,4 @@
-﻿Group: Shipping rate computation
+Group: Shipping rate computation
 FriendlyName: FedEx
 SystemName: Shipping.FedEx
 Version: 1.21
