@@ -34,6 +34,7 @@ p{
 
 .header-menu{
     background-image:url(../images/navigation.png);
+    background-repeat:round;
     /*padding:8px 0 0 0 !important;*/
     padding:8px 0 8px 0 !important;
     margin-top:-6px !important;
@@ -65,6 +66,12 @@ ul.sublist.first-level{
 /*Hover Menu style*/
 .header-menu > UL > li > a:hover, .header-menu .sublist li a:hover{
     background-color :#f8b59d !important;
+    -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  /* ...and now for the proper property */
+  transition:.5s;
 
 }
 
@@ -6090,6 +6097,7 @@ pre {
 	font-size: 17px; /*reset zeroing*/
 	color: #555;
 	cursor: pointer;
+    border-radius:20px;
 }
 .header-menu > ul > li > a:hover {
 	color: #4ab2f1;

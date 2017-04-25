@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Nop.Data.NopObjectContext-Web.config Connection String" description="Nop.Data.NopObjectContext Connection String used in web.config by the application to access the database." defaultValue="Nop.Data.NopObjectContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\source\\GIT\\PP\.NopCommerce\\NopCommerce\\PickledPeach\.NOPCommerce\\Presentation\\Nop\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Nop.Data.NopObjectContext']/@connectionString" />
+  </parameter>
+</parameters>

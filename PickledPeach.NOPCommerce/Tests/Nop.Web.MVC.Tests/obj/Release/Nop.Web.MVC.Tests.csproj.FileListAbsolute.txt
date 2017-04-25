@@ -234,7 +234,6 @@ C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Tests\Nop.Web.
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Tests\Nop.Web.MVC.Tests\bin\Release\MaxMind.Db.xml
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Tests\Nop.Web.MVC.Tests\bin\Release\EPPlus.xml
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Tests\Nop.Web.MVC.Tests\bin\Release\System.Web.Optimization.xml
-C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Tests\Nop.Web.MVC.Tests\bin\Release\Recaptcha.pdb
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Tests\Nop.Web.MVC.Tests\bin\Release\FluentValidation.Mvc.pdb
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Tests\Nop.Web.MVC.Tests\bin\Release\MiniProfiler.Mvc.pdb
 C:\source\GIT\PP.NopCommerce\NopCommerce\PickledPeach.NOPCommerce\Tests\Nop.Web.MVC.Tests\bin\Release\MiniProfiler.pdb

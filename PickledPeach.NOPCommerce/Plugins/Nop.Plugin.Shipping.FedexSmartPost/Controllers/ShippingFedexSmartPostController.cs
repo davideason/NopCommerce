@@ -63,9 +63,10 @@ namespace Nop.Plugin.Shipping.FedexSmartPost.Controllers
                     }
                 }
 
-            //return View("~/Plugins/Shipping.FedexSmartPost/Views/ShippingFedex/Configure.cshtml", model);
+            return View("~/Plugins/Shipping.FedexSmartPost/Views/ShippingFedexSmartPost/Configure.cshtml", model);
             //~/ShippingFedexSmartPost/Configure
-            return View("~/ShippingFedexSmartPost/Configure.cshtml", model);
+            // Attempt two //return View("~/ShippingFedexSmartPost/Configure.cshtml", model);
+            //return View("../../Views/ShippingFedex/Configure.cshtml", model);
 
         }
 
