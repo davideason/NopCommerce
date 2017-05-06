@@ -35,6 +35,7 @@ namespace Nop.Plugin.Shipping.FedexSmartPost.Controllers
             model.Password = _fedexSettings.Password;
             model.AccountNumber = _fedexSettings.AccountNumber;
             model.MeterNumber = _fedexSettings.MeterNumber;
+            model.HubID = _fedexSettings.HubID;
             model.DropoffType = Convert.ToInt32(_fedexSettings.DropoffType);
             model.AvailableDropOffTypes = _fedexSettings.DropoffType.ToSelectList();
             model.UseResidentialRates = _fedexSettings.UseResidentialRates;
@@ -85,6 +86,7 @@ namespace Nop.Plugin.Shipping.FedexSmartPost.Controllers
             _fedexSettings.Password = model.Password;
             _fedexSettings.AccountNumber = model.AccountNumber;
             _fedexSettings.MeterNumber = model.MeterNumber;
+            _fedexSettings.HubID = model.HubID;
             _fedexSettings.DropoffType = (DropoffType)model.DropoffType;
             _fedexSettings.UseResidentialRates = model.UseResidentialRates;
             _fedexSettings.ApplyDiscounts = model.ApplyDiscounts;
